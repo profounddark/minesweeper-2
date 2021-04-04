@@ -1,0 +1,2 @@
+# Minesweeper, Take Two
+I previously wrote a HTML/CSS/JS Minesweeper as a final project for my JavaScript programming class. I thought I'd do it again (from mostly scratch) as I've learned quite a bit since I did the original.
