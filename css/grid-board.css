@@ -5,18 +5,55 @@
     width: 320px;
     height: 320px;
     border: solid;
+    image-rendering: pixelated;
 }
 
 .grid-board div {
     background: url('../assets/minesweeper-sprites.png');
-    background-size: 128px 128px;
+    background-size: 384px 128px;
 }
 
-.grid-board .grass {
+.grid-board .covered {
     background-position-x: 0px;
 }
-.grid-board .dirt {
+.grid-board .zero {
     background-position-x: -32px;
+}
+
+.grid-board .one {
+    background-position-x: -64px;
+}
+
+.grid-board .two {
+    background-position-x: -96px;
+}
+
+.grid-board .three {
+    background-position-x: -128px;
+}
+
+.grid-board .four {
+    background-position-x: -160px;
+}
+
+.grid-board .five {
+    background-position-x: -192px;
+}
+
+.grid-board .six {
+    background-position-x: -224px;
+}
+
+.grid-board .seven {
+    background-position-x: -256px;
+}
+
+.grid-board .eight {
+    background-position-x: -288px;
+}
+
+.grid-board .flag {
+    background-position-x: -320px;
 }
 
 .grid-board .even {

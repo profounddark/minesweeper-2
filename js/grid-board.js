@@ -1,4 +1,5 @@
 export class GridBoard {
+    static NumberSpaces = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight"];
     constructor(size) {
         
         this._size = size;
@@ -18,15 +19,18 @@ export class GridBoard {
                 square.dataset.x = col;
                 square.dataset.y = row;
                 if ((row + col) % 2 === 0) {
-                    square.className = "grass even";
+                    square.className = "covered even";
                 } else
                 {
-                    square.className = "grass odd";
+                    square.className = "covered odd";
                 }
-                square.addEventListener("click", (event) => {
+                square.addEventListener("contextmenu", e => e.preventDefault());
+                square.addEventListener("mousedown", (event) => {
+                    event.preventDefault();
                     const square = event.target;
+                    const button = (event.button === 0) ? 'left' : ((event.button === 2) ? 'right' : 'none');
                     if (this._clickFunction) {
-                        this._clickFunction(Number(square.dataset.x), Number(square.dataset.y));
+                        this._clickFunction(Number(square.dataset.x), Number(square.dataset.y), button);
                     } else {
                         console.error('No click function set');
                     }
@@ -39,10 +43,15 @@ export class GridBoard {
         this._gameBoard = board;
     }
 
-    turnToDirt(x, y) {
+    changeToNumber(x, y, numb) {
         const square = this._squares[x + (y * this._size)];
-        square.classList.remove("grass");
-        square.classList.add("dirt");
+        square.classList.remove("covered");
+        square.classList.add(GridBoard.NumberSpaces[numb]);
+    }
+
+    toggleFlag(x, y) {
+        const square = this._squares[x + (y * this._size)];
+        square.classList.toggle("flag");
     }
 
     // method for establishing what function to execute when a space is clicked on. The
