@@ -56,6 +56,11 @@
     background-position-x: -320px;
 }
 
+.grid-board .bomb {
+    background-position-x: -352px;
+
+}
+
 .grid-board .even {
     background-position-y: 0;
 }

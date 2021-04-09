@@ -43,7 +43,7 @@ export class GridBoard {
         this._gameBoard = board;
     }
 
-    changeToNumber(x, y, numb) {
+    setNumber(x, y, numb) {
         const square = this._squares[x + (y * this._size)];
         square.classList.remove("covered");
         square.classList.add(GridBoard.NumberSpaces[numb]);
@@ -52,6 +52,22 @@ export class GridBoard {
     toggleFlag(x, y) {
         const square = this._squares[x + (y * this._size)];
         square.classList.toggle("flag");
+    }
+
+    toggleBomb(x, y) {
+        const square = this._squares[x + (y * this._size)];
+        square.classList.toggle("bomb");
+    }
+
+    setSpace(x, y, bomb, flag, numb) {
+        if (bomb) {
+            this.toggleBomb(x,y);
+        }
+        else if (flag) {
+            this.toggleFlag(x,y);
+        } else {
+            this.setNumber(x,y,numb);
+        }
     }
 
     // method for establishing what function to execute when a space is clicked on. The
