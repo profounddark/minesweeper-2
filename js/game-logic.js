@@ -97,6 +97,7 @@ export class Minesweeper {
             const adjacentBombs = this._countAdjacent(x, y);
             if (adjacentBombs === 0) {
                 //cascadeSpace(x, y);
+                this._setSpace(x, y, false, false, adjacentBombs);
             } else {
                 this._setSpace(x, y, false, false, adjacentBombs);
             }
